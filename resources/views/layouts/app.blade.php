@@ -39,11 +39,12 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
-                        <li><a class ="nav-link" href="">Post</a></li>
+                        <li><a class ="nav-link" href="{{ route('posts.create') }}">Create a Post</a></li>
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
+                            <li><a class ="nav-link" href="{{ route('guest.posts.home') }}">Post</a></li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>

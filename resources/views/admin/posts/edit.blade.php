@@ -1,10 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
-        <form action="{{ route('posts.update', $post->id) }}" method="post">
-            @csrf
-            @method('PATCH')
-            @if ($errors->any())
+        @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
                     @foreach ($errors->all() as $error)
@@ -12,8 +9,15 @@
                     @endforeach
                 </ul>
             </div>
-            @endif
-
+        @endif
+        <form action="{{ route('posts.update', $post->id) }}" method="post" enctype="multipart/form-data">
+            @csrf
+            @method('PATCH')
+            <img src=" {{asset('storage/'.$post->img)}}" alt="{{ $post->slug }}" width="300px">
+            <div class="form-group">
+                <label for="img">Modifica immagine</label>
+                <input type="file" name="img" value="" accept="image/*">
+            </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Titolo</label>
                 <input input="text" name="title" value ={{ $post->title }} class="form-control" placeholder="Inserisci il titolo">

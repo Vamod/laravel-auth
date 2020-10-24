@@ -6,8 +6,6 @@
         </div>
     @endif
 
-
-
     <table class="table">
   <thead class="thead-dark">
     <tr>
@@ -27,13 +25,16 @@
           <form action="{{ route('posts.destroy', $post->id) }}" method="POST">
               @csrf
               @method('DELETE')
-             <button type="submit" class="btn btn-primary">Cancella</button>
+             <button type="submit" class="btn btn-primary">Delete</button>
          </form>
      </td>
     </tr>
     @endforeach
   </tbody>
 </table>
+<div class="mt-5 justify-content-center">
+    {{ $posts->links() }}
+</div>
 
 
 
