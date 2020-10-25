@@ -10,6 +10,7 @@
   <thead class="thead-dark">
     <tr>
       <th scope="col">id</th>
+      <th scope="col">Autore</th>
       <th scope="col">Titolo</th>
       <th scope="col">Edit</th>
       <th scope="col">Delete</th>
@@ -19,6 +20,7 @@
  @foreach ($posts as $post)
     <tr>
       <th scope="row">{{$post->id}}</th>
+      <td>{{ $post->user->name }}</td>
       <td>{{$post->title}}</td>
       <td><a href="{{ route('posts.edit', $post->id) }}">Edit</a></td>
       <td>
